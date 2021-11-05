@@ -1,16 +1,13 @@
 Particle [] p;
-Particle [] j;
 
 void setup() {
   size (800, 800);
   noStroke();
   p = new Particle[500];
-  j = new Particle[1];
-    j[1] = new OddBall();
   for ( int i = 0; i < p.length; i++) {
     p[i] = new Particle();
-    j[1]= new OddBall();
   }
+  p[0] = new OddBall();
 }
 
 void draw () {
@@ -18,8 +15,7 @@ void draw () {
   for (int i = 0; i < p.length; i++) {
     p[i].show();
     p[i].move();
-    j[1].show();
-    j[1].move();
+  
   }
 }
 
@@ -35,6 +31,16 @@ class Particle {
     mySize = (Math.random()*15)+1;
     myAngle = Math.random()*2*Math.PI;
   }
+class OddBall extends Particle {
+  OddBall(){
+    myX = (Math.random ()* 820);
+    myY = myX;
+    myColor = (int)(Math.random()*22);
+    mySize = 40;
+    mySpeed = 1;
+    
+  }
+}
 
 
   void show() {
@@ -63,4 +69,3 @@ class OddBall extends Particle {
     myAngle = Math.random()*2*Math.PI;
   }
 }
-
